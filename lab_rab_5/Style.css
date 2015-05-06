@@ -1,0 +1,65 @@
+﻿.bodya {
+    background: url('fon.gif')
+}
+
+.positionMenu{
+    padding-top:100px;
+    padding-left:100px;
+    padding-right:100px;
+    /*margin-right: auto;
+    margin-left: auto;*/
+}
+
+.img_emblema1{
+    height: 122px; 
+    width: 169px;
+    position:absolute; 
+    left:180px;
+    top:10px;
+}
+
+.img_emblema2{
+    height: 122px; 
+    width: 169px;
+    position:absolute; 
+    right:200px;
+    top:10px;
+}
+
+h2{
+    position:absolute;
+    font-size:96px;
+    font-family:cursive;
+    left:500px;
+    top:0px;
+    color:#1e4d97;
+}
+
+ul.menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px 5px;
+    width: 1170px;
+    height: 70px;
+    text-align: center;
+    font-size: 16px;
+}
+ul.menu li {
+    float: left;
+    list-style: none;
+    width: 130px;
+    height: 70px;
+}
+ul.menu li a {
+    display: block;
+    padding: 16px 10px 20px;
+    text-decoration: none;
+    border-radius: 5px 5px;
+}
+
+ul.menu li a:hover {
+    background: #808080;
+    color: #faf725; 
+    text-decoration:none; 
+}

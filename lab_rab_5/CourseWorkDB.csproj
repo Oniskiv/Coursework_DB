@@ -164,7 +164,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="emb.png" />
+    <Content Include="Style.css" />
     <Content Include="Employee.aspx" />
+    <Content Include="fon.gif" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Lessons.aspx" />
     <Content Include="Load_employee.aspx" />
