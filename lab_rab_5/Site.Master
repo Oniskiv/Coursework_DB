@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="~/Style.css">
 </head>
-<body class="bodya">
+<body class="body">
     <form runat="server">
         <img src="emb.png" class="img_emblema1" />
         <img src="emb.png" class="img_emblema2" />
@@ -27,12 +27,12 @@
                     <ul class="menu">
                         <li><a runat="server" href="~/">Главная</a></li>
                         <li><a runat="server" href="~/Classes.aspx">Классы</a></li>
-                        <li><a runat="server" href="~/Employee.aspx">Сотрудники</a></li>
-                        <li><a runat="server" href="~/Lessons.aspx">Занятия</a></li>
-                        <li><a runat="server" href="~/Load_employee.aspx">Нагрузка сотрудников</a></li>
-                        <li><a runat="server" href="~/Post.aspx">Должности</a></li>
                         <li><a runat="server" href="~/Pupils.aspx">Ученики</a></li>
+                        <li><a runat="server" href="~/Employee.aspx">Сотрудники</a></li>
                         <li><a runat="server" href="~/Timetable.aspx">Расписание</a></li>
+                        <li><a runat="server" href="~/Lessons.aspx">Занятия</a></li>
+                        <li><a runat="server" href="~/Post.aspx">Должности</a></li>
+                        <li><a runat="server" href="~/Load_employee.aspx">Нагрузка сотрудников</a></li>
                         <li><a runat="server" href="~/Track_record.aspx">Послужной список</a></li>
                     </ul>
             </div>

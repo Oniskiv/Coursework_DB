@@ -1,13 +1,21 @@
-﻿.bodya {
-    background: url('fon.gif')
+﻿.body {
+    background: url('fon.gif');
 }
 
 .positionMenu{
+    margin: 0 auto; 
     padding-top:100px;
-    padding-left:100px;
-    padding-right:100px;
-    /*margin-right: auto;
-    margin-left: auto;*/
+    padding-left:90px;
+    /*padding-right:100px;*/
+}
+
+.grid th{
+  text-align:center;
+}
+
+.test {
+display: block;
+width: 10px;
 }
 
 .img_emblema1{
@@ -33,6 +41,11 @@ h2{
     left:500px;
     top:0px;
     color:#1e4d97;
+}
+
+p{
+    font-family:'Times New Roman';
+    font-size:20px;
 }
 
 ul.menu {
@@ -62,4 +75,17 @@ ul.menu li a:hover {
     background: #808080;
     color: #faf725; 
     text-decoration:none; 
+}
+
+.search{
+    position:relative; 
+    padding-top:10px; 
+    padding-left: 350px;
+    font-size:18px;
+}
+
+.detailsView{
+    position:relative;
+    padding-left:450px; 
+    padding-top:20px
 }

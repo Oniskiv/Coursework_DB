@@ -165,6 +165,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="emb.png" />
+    <Content Include="Image\add.png" />
+    <Content Include="Image\cancel.png" />
+    <Content Include="Image\edit.png" />
+    <Content Include="Image\im_tb_del_m.png" />
+    <Content Include="Image\save.png" />
+    <Content Include="Image\select.png" />
     <Content Include="Style.css" />
     <Content Include="Employee.aspx" />
     <Content Include="fon.gif" />
