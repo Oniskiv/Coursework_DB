@@ -4,7 +4,7 @@
 
 <html lang="ru">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
@@ -12,19 +12,72 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="~/Style.css">
 </head>
 <body class="body">
     <form runat="server">
-        <img src="emb.png" class="img_emblema1" />
-        <img src="emb.png" class="img_emblema2" />
-        <div>
-            <h2>Школа</h2>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Дополнительные сведения об объединении сценариев в ScriptManager см. по адресу: http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Сценарии .NET Framework--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Сценарии сайта--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <%--<div class="positionMenuLogin">
+            <ul class="menu">
+                <li><a runat="server" href="Account/Login.aspx/">Вход</a></li>
+                <li><a runat="server" href="Account/Register.aspx">Регистрация</a></li>
+            </ul>
+        </div>--%>
+
+        <div id="feedbackP">
+            <div id="feedbackButton">
+                Личный кабинет
+            </div>
+            <asp:LoginView runat="server" ViewStateMode="Disabled">
+                <AnonymousTemplate>
+                    <button><a id="loginLink" runat="server" href="/Account/Login">Вход</a></button>
+                    <button><a id="registerLink" runat="server" href="/Account/Register">Зарегистрироваться</a></button>
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <span style="">Привет, </span>
+                    <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                        <asp:LoginName runat="server" CssClass="username" />
+                    </a>
+                    <button>
+                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Выход" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                    </button>
+                </LoggedInTemplate>
+            </asp:LoginView>
         </div>
-        <div class="positionMenu">
-                    <ul class="menu">
+
+        <div>
+            <img src="emb.png" class="img_emblema1" />
+            <img src="emb.png" class="img_emblema2" />
+            <div>
+                <h2>Школа</h2>
+            </div>
+
+
+
+            <div class="positionMenu">
+                <div id="header">
+                    <ul id="menu">
                         <li><a runat="server" href="~/">Главная</a></li>
                         <li><a runat="server" href="~/Classes.aspx">Классы</a></li>
                         <li><a runat="server" href="~/Pupils.aspx">Ученики</a></li>
@@ -34,10 +87,19 @@
                         <li><a runat="server" href="~/Post.aspx">Должности</a></li>
                         <li><a runat="server" href="~/Load_employee.aspx">Нагрузка сотрудников</a></li>
                         <li><a runat="server" href="~/Track_record.aspx">Послужной список</a></li>
+                        <li><a runat="server" href="">Другое</a>
+                            <ul>
+                                <li><a runat="server" href="~/InformationEmployees.aspx">Сотрудники</a></li>
+                                <li><a runat="server" href="~/InformationPupils.aspx">Ученики</a></li>
+                                <li><a runat="server" href="~/InformationClasses.aspx">Классы</a></li>
+                            </ul>
+                        </li>
                     </ul>
+                </div>
             </div>
+        </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" >
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>

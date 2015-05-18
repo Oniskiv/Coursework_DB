@@ -4,9 +4,15 @@
     <div style="padding-top: 10px">
         <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_timetable" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
             <Columns>
-                <asp:BoundField DataField="Date_lesson" HeaderText="Дата занятия" SortExpression="Date_lesson" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%" />
-                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%" />
-                <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%" />
+                <asp:BoundField DataField="Date_lesson" HeaderText="Дата занятия" SortExpression="Date_lesson" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
+                </asp:BoundField>
                 <asp:TemplateField HeaderText="Название класса" SortExpression="Code_class" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <EditItemTemplate>
                         <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_class" DataValueField="Code_class" SelectedValue='<%# Bind("Code_class") %>'>
@@ -16,6 +22,8 @@
                         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_class" DataValueField="Code_class" Enabled="False" SelectedValue='<%# Bind("Code_class") %>'>
                         </asp:DropDownList>
                     </ItemTemplate>
+
+                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Название предмета" SortExpression="Code_lesson" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <EditItemTemplate>
@@ -26,12 +34,17 @@
                         <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource3" DataTextField="Name_lessons" DataValueField="Code_lesson" Enabled="False" SelectedValue='<%# Bind("Code_lesson") %>'>
                         </asp:DropDownList>
                     </ItemTemplate>
+
+                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:TemplateField>
                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/Image/select.png" SelectText="" ShowSelectButton="True" />
                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Image/im_tb_del_m.png" DeleteText="" ShowDeleteButton="True" />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+
+            <PagerSettings Mode="NumericFirstLast"></PagerSettings>
+
             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <SortedAscendingCellStyle BackColor="#F7F7F7" />
@@ -94,10 +107,60 @@
             <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <Fields>
                 <asp:BoundField DataField="Code_timetable" HeaderText="Код расписания" InsertVisible="False" ReadOnly="True" SortExpression="Code_timetable" />
-                <asp:BoundField DataField="Date_lesson" HeaderText="Дата проведения" SortExpression="Date_lesson" DataFormatString="{0:d}" />
-                <asp:BoundField DataField="Day_week" HeaderText="День недели" SortExpression="Day_week" />
-                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="{0:t}" />
-                <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:t}" />
+                <asp:TemplateField HeaderText="Дата проведения" SortExpression="Date_lesson">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_lesson") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox1" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_lesson", "{0:d}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="TextBox1" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Date_lesson", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="День недели" SortExpression="Day_week">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Day_week") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Day_week") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Day_week") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Время начала занятия" SortExpression="Start_time">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time", "{0:t}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Start_time", "{0:t}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Время окончания занятия" SortExpression="End_time">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time", "{0:t}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("End_time", "{0:t}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Название класса" SortExpression="Code_class">
                     <EditItemTemplate>
                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_class" DataValueField="Code_class" SelectedValue='<%# Bind("Code_class") %>'>
@@ -126,8 +189,8 @@
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center">
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
                 </asp:CommandField>
             </Fields>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

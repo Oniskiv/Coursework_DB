@@ -62,8 +62,40 @@
             <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <Fields>
                 <asp:BoundField DataField="Code_list" HeaderText="Код списка" InsertVisible="False" ReadOnly="True" SortExpression="Code_list" />
-                <asp:BoundField DataField="Date_reception" HeaderText="Дата приема" SortExpression="Date_reception" DataFormatString="{0:d}" />
-                <asp:BoundField DataField="Date_liberation" HeaderText="Дата увольнения" SortExpression="Date_liberation" DataFormatString="{0:d}" />
+                <asp:TemplateField HeaderText="Дата приема" SortExpression="Date_reception">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_reception") %>'></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox1" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_reception", "{0:d}") %>'></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="TextBox1" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Date_reception", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Дата увольнения" SortExpression="Date_liberation">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Date_liberation") %>'></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="TextBox2" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Date_liberation", "{0:d}") %>'></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="TextBox2" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Date_liberation", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="ФИО сотрудника" SortExpression="Code_employee">
                     <EditItemTemplate>
                         <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
@@ -92,7 +124,9 @@
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center" />
+                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                </asp:CommandField>
             </Fields>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

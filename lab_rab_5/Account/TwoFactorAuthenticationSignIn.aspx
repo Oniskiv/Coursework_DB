@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Двухфакторная проверка подлинности" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TwoFactorAuthenticationSignIn.aspx.cs" Inherits="lab_rab_5.Account.TwoFactorAuthenticationSignIn" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-        <h2><%: Title %>.</h2>
+       
     <asp:PlaceHolder runat="server" ID="sendcode">
         <section>
             <h4>Отправить проверочный код</h4>

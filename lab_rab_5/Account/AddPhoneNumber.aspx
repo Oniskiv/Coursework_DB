@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Номер телефона" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPhoneNumber.aspx.cs" Inherits="lab_rab_5.Account.AddPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
 
     <div class="form-horizontal">
         <h4>Добавление номера телефона</h4>

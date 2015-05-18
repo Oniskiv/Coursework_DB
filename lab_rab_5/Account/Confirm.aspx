@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Подтверждение учетной записи" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="lab_rab_5.Account.Confirm" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
 
     <div>
         <asp:PlaceHolder runat="server" ID="successPanel" ViewStateMode="Disabled" Visible="true">

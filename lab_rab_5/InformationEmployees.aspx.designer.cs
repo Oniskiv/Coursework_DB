@@ -7,27 +7,27 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace lab_rab_5.Account {
+namespace lab_rab_5 {
     
     
-    public partial class AddPhoneNumber {
+    public partial class InformationEmployees {
         
         /// <summary>
-        /// ErrorMessage элемент управления.
+        /// GridView1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// PhoneNumber элемент управления.
+        /// SqlDataSource1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

@@ -96,14 +96,104 @@
             <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <Fields>
                 <asp:BoundField DataField="Code_employee" HeaderText="Код сотрудника" InsertVisible="False" ReadOnly="True" SortExpression="Code_employee" />
-                <asp:BoundField DataField="Name_employee" HeaderText="ФИО сотрудника" SortExpression="Name_employee" />
-                <asp:BoundField DataField="Birth_date" HeaderText="Дата рождения" SortExpression="Birth_date" DataFormatString="{0:d}" />
-                <asp:BoundField DataField="Gender" HeaderText="Пол" SortExpression="Gender" />
-                <asp:BoundField DataField="Address" HeaderText="Адрес" SortExpression="Address" />
-                <asp:BoundField DataField="Phone" HeaderText="Номер телефона" SortExpression="Phone" />
-                <asp:BoundField DataField="Passport_details" HeaderText="Паспортные данные" SortExpression="Passport_details" />
-                <asp:BoundField DataField="Education" HeaderText="Образование" SortExpression="Education" />
-                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center" />
+                <asp:TemplateField HeaderText="ФИО сотрудника" SortExpression="Name_employee">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name_employee") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name_employee") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name_employee") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Дата рождения" SortExpression="Birth_date">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Birth_date") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox2" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="TextBox2" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Пол" SortExpression="Gender">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Gender") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Gender") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Gender") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Адрес" SortExpression="Address">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Address") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Номер телефона" SortExpression="Phone">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ControlToValidate="TextBox5" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="TextBox5" ValidationExpression="^[0-9 ]+$" runat="server" ErrorMessage="Введен неверный номер"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ControlToValidate="TextBox5" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="TextBox5" ValidationExpression="^[0-9 ]+$" runat="server" ErrorMessage="Введен неверный номер"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Паспортные данные" SortExpression="Passport_details">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Passport_details") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ControlToValidate="TextBox6" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Passport_details") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ControlToValidate="TextBox6" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("Passport_details") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Образование" SortExpression="Education">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Education") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ControlToValidate="TextBox7" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Education") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ControlToValidate="TextBox7" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Bind("Education") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center">
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                </asp:CommandField>
             </Fields>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
