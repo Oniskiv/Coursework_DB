@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pupils.aspx.cs" Inherits="lab_rab_5.Pupils" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="labelName">
+        <asp:Label ID="Label5" runat="server" Text="Ученики"></asp:Label>
+    </div>
     <div class="search">
         <asp:Label ID="Label1" runat="server" Text="ФИО ученика:"></asp:Label>
         <asp:TextBox ID="TextBox3" runat="server" Width="200px"></asp:TextBox>

@@ -1,13 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Timetable.aspx.cs" Inherits="lab_rab_5.Timetable" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="labelName">
+        <asp:Label ID="Label5" runat="server" Text="Расписание"></asp:Label>
+    </div>
     <div style="padding-top: 10px">
+        <div class="dropDownList">
+        <asp:Label ID="Label7" runat="server" Text="Название класса:" Font-Size="18"></asp:Label>
+            <asp:DropDownList ID="DropDownList15" runat="server" DataSourceID="SqlDataSource6" DataTextField="Name_class" DataValueField="Code_class" AutoPostBack="True" AppendDataBoundItems="true">
+                <asp:ListItem Selected="True" Value="0" Text="Все"></asp:ListItem>
+            </asp:DropDownList>
+        </div>
         <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_timetable" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="Date_lesson" HeaderText="Дата занятия" SortExpression="Date_lesson" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:BoundField>
                 <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
@@ -53,7 +62,14 @@
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" DeleteCommand="DELETE FROM [Timetable] WHERE [Code_timetable] = @Code_timetable" InsertCommand="INSERT INTO [Timetable] ([Date_lesson], [Day_week], [Start_time], [End_time], [Code_class], [Code_lesson]) VALUES (@Date_lesson, @Day_week, @Start_time, @End_time, @Code_class, @Code_lesson)" SelectCommand="SELECT * FROM [Timetable]" UpdateCommand="UPDATE [Timetable] SET [Date_lesson] = @Date_lesson, [Day_week] = @Day_week, [Start_time] = @Start_time, [End_time] = @End_time, [Code_class] = @Code_class, [Code_lesson] = @Code_lesson WHERE [Code_timetable] = @Code_timetable">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>"
+        DeleteCommand="DELETE FROM [Timetable] WHERE [Code_timetable] = @Code_timetable"
+        InsertCommand="INSERT INTO [Timetable] ([Date_lesson], [Day_week], [Start_time], [End_time], [Code_class], [Code_lesson]) VALUES (@Date_lesson, @Day_week, @Start_time, @End_time, @Code_class, @Code_lesson)"
+        SelectCommand="IF @CodeCclass=0 SELECT * FROM [Timetable] ELSE SELECT * FROM [Timetable] WHERE Code_class=@CodeCclass"
+        UpdateCommand="UPDATE [Timetable] SET [Date_lesson] = @Date_lesson, [Day_week] = @Day_week, [Start_time] = @Start_time, [End_time] = @End_time, [Code_class] = @Code_class, [Code_lesson] = @Code_lesson WHERE [Code_timetable] = @Code_timetable">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList15" Name="CodeCclass" />
+        </SelectParameters>
         <DeleteParameters>
             <asp:Parameter Name="Code_timetable" Type="Int32" />
         </DeleteParameters>
@@ -77,7 +93,8 @@
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Code_class], [Name_class] FROM [Classes]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Code_lesson], [Name_lessons] FROM [Lessons]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" DeleteCommand="DELETE FROM [Timetable] WHERE [Code_timetable] = @Code_timetable" InsertCommand="INSERT INTO [Timetable] ([Date_lesson], [Day_week], [Start_time], [End_time], [Code_class], [Code_lesson]) VALUES (@Date_lesson, @Day_week, @Start_time, @End_time, @Code_class, @Code_lesson)" SelectCommand="SELECT * FROM [Timetable] WHERE ([Code_timetable] = @Code_timetable)" UpdateCommand="UPDATE [Timetable] SET [Date_lesson] = @Date_lesson, [Day_week] = @Day_week, [Start_time] = @Start_time, [End_time] = @End_time, [Code_class] = @Code_class, [Code_lesson] = @Code_lesson WHERE [Code_timetable] = @Code_timetable">
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Code_employee], [Name_employee] FROM [Employee]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" DeleteCommand="DELETE FROM [Timetable] WHERE [Code_timetable] = @Code_timetable" InsertCommand="INSERT INTO [Timetable] ([Date_lesson], [Day_week], [Start_time], [End_time], [Code_class], [Code_lesson], [Code_employee]) VALUES (@Date_lesson, @Day_week, @Start_time, @End_time, @Code_class, @Code_lesson, @Code_employee)" SelectCommand="SELECT * FROM [Timetable] WHERE ([Code_timetable] = @Code_timetable)" UpdateCommand="UPDATE [Timetable] SET [Date_lesson] = @Date_lesson, [Day_week] = @Day_week, [Start_time] = @Start_time, [End_time] = @End_time, [Code_class] = @Code_class, [Code_lesson] = @Code_lesson, [Code_employee] = @Code_employee WHERE [Code_timetable] = @Code_timetable">
         <DeleteParameters>
             <asp:Parameter Name="Code_timetable" Type="Int32" />
         </DeleteParameters>
@@ -88,6 +105,7 @@
             <asp:Parameter DbType="Time" Name="End_time" />
             <asp:Parameter Name="Code_class" Type="Int32" />
             <asp:Parameter Name="Code_lesson" Type="Int32" />
+            <asp:Parameter Name="Code_employee" Type="Int32" />
         </InsertParameters>
         <SelectParameters>
             <asp:ControlParameter ControlID="GridView1" Name="Code_timetable" PropertyName="SelectedValue" Type="Int32" />
@@ -99,9 +117,11 @@
             <asp:Parameter DbType="Time" Name="End_time" />
             <asp:Parameter Name="Code_class" Type="Int32" />
             <asp:Parameter Name="Code_lesson" Type="Int32" />
+            <asp:Parameter Name="Code_employee" Type="Int32" />
             <asp:Parameter Name="Code_timetable" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Code_class], [Name_class] FROM [Classes]"></asp:SqlDataSource>
     <div class="detailsView">
         <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Code_timetable" DataSourceID="SqlDataSource4" Height="50px" Width="125px" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
             <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
@@ -194,6 +214,20 @@
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource3" DataTextField="Name_lessons" DataValueField="Code_lesson" Enabled="False" SelectedValue='<%# Bind("Code_lesson") %>'>
+                        </asp:DropDownList>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Преподаватель" SortExpression="Code_employee">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="DropDownList12" runat="server" DataSourceID="SqlDataSource5" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
+                        </asp:DropDownList>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:DropDownList ID="DropDownList13" runat="server" DataSourceID="SqlDataSource5" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
+                        </asp:DropDownList>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:DropDownList ID="DropDownList14" runat="server" DataSourceID="SqlDataSource5" DataTextField="Name_employee" DataValueField="Code_employee" Enabled="False" SelectedValue='<%# Bind("Code_employee") %>'>
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>

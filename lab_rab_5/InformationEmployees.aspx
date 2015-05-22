@@ -1,20 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformationEmployees.aspx.cs" Inherits="lab_rab_5.InformationEmployees" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="Code_pupil" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="Name_employee" HeaderText="Name_employee" SortExpression="Name_employee" />
-            <asp:BoundField DataField="Name_post" HeaderText="Name_post" SortExpression="Name_post" />
-            <asp:BoundField DataField="Name_lessons" HeaderText="Name_lessons" SortExpression="Name_lessons" />
-            <asp:BoundField DataField="Name_class" HeaderText="Name_class" SortExpression="Name_class" />
+            <asp:BoundField DataField="Code_pupil" HeaderText="Code_pupil" InsertVisible="False" ReadOnly="True" SortExpression="Code_pupil" />
+            <asp:BoundField DataField="Name_pupil" HeaderText="Name_pupil" SortExpression="Name_pupil" />
+            <asp:BoundField DataField="Birth_date" HeaderText="Birth_date" SortExpression="Birth_date" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+            <asp:BoundField DataField="Father_name" HeaderText="Father_name" SortExpression="Father_name" />
+            <asp:BoundField DataField="Mother_name" HeaderText="Mother_name" SortExpression="Mother_name" />
+            <asp:BoundField DataField="Code_class" HeaderText="Code_class" SortExpression="Code_class" />
+            <asp:BoundField DataField="Additional_information" HeaderText="Additional_information" SortExpression="Additional_information" />
         </Columns>
-        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-        <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT * FROM [ViewEmployees]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="ListPupilsCode" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="TextBox1" ConvertEmptyStringToNull="False" DefaultValue="14" Name="code" PropertyName="Text" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>

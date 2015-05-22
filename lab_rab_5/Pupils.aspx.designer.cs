@@ -13,6 +13,15 @@ namespace lab_rab_5 {
     public partial class Pupils {
         
         /// <summary>
+        /// Label5 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
         /// Label1 элемент управления.
         /// </summary>
         /// <remarks>

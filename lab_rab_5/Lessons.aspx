@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Lessons.aspx.cs" Inherits="lab_rab_5.Lessons" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="labelName">
+        <asp:Label ID="Label5" runat="server" Text="Занятия"></asp:Label>
+    </div>
     <div class="search">
         <asp:Label ID="Label1" runat="server" Text="Название занятия:"></asp:Label>
         <asp:TextBox ID="TextBox3" runat="server" Width="200px"></asp:TextBox>
@@ -9,18 +12,8 @@
     <div style="padding-top: 10px">
         <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_lesson" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
             <Columns>
-                <asp:BoundField DataField="Name_lessons" HeaderText="Название занятия" SortExpression="Name_lessons" ItemStyle-Width="33.3%" ItemStyle-HorizontalAlign="Center" />
-                <asp:TemplateField HeaderText="Учитель" SortExpression="Code_employee" ItemStyle-Width="33.3%" ItemStyle-HorizontalAlign="Center">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
-                        </asp:DropDownList>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>' Enabled="False">
-                        </asp:DropDownList>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Description" HeaderText="Описание" SortExpression="Description" ItemStyle-Width="33.3%" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField DataField="Name_lessons" HeaderText="Название занятия" SortExpression="Name_lessons" ItemStyle-Width="50%" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField DataField="Description" HeaderText="Описание" SortExpression="Description" ItemStyle-Width="50%" ItemStyle-HorizontalAlign="Center" />
                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/Image/select.png" SelectText="" ShowSelectButton="True" />
                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Image/im_tb_del_m.png" DeleteText="" ShowDeleteButton="True" />
             </Columns>
@@ -34,23 +27,20 @@
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" DeleteCommand="DELETE FROM [Lessons] WHERE [Code_lesson] = @Code_lesson" InsertCommand="INSERT INTO [Lessons] ([Name_lessons], [Description], [Code_employee]) VALUES (@Name_lessons, @Description, @Code_employee)" SelectCommand="SELECT * FROM [Lessons]" UpdateCommand="UPDATE [Lessons] SET [Name_lessons] = @Name_lessons, [Description] = @Description, [Code_employee] = @Code_employee WHERE [Code_lesson] = @Code_lesson">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" DeleteCommand="DELETE FROM [Lessons] WHERE [Code_lesson] = @Code_lesson" InsertCommand="INSERT INTO [Lessons] ([Name_lessons], [Description]) VALUES (@Name_lessons, @Description)" SelectCommand="SELECT * FROM [Lessons]" UpdateCommand="UPDATE [Lessons] SET [Name_lessons] = @Name_lessons, [Description] = @Description WHERE [Code_lesson] = @Code_lesson">
         <DeleteParameters>
             <asp:Parameter Name="Code_lesson" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="Name_lessons" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="Code_employee" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="Name_lessons" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="Code_employee" Type="Int32" />
             <asp:Parameter Name="Code_lesson" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Code_employee], [Name_employee] FROM [Employee]"></asp:SqlDataSource>
     <div class="detailsView">
         <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_lesson" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Horizontal" Height="50px" Width="125px">
             <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
@@ -86,22 +76,8 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Учитель" SortExpression="Code_employee">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
-                        </asp:DropDownList>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>'>
-                        </asp:DropDownList>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name_employee" DataValueField="Code_employee" SelectedValue='<%# Bind("Code_employee") %>' Enabled="False">
-                        </asp:DropDownList>
-                    </ItemTemplate>
-                </asp:TemplateField>
                 <asp:CommandField ButtonType="Image" CancelImageUrl="~/Image/cancel.png" CancelText="" EditImageUrl="~/Image/edit.png" EditText="" InsertImageUrl="~/Image/save.png" InsertText="" NewImageUrl="~/Image/add.png" NewText="" ShowEditButton="True" ShowInsertButton="True" UpdateImageUrl="~/Image/save.png" UpdateText="" ItemStyle-HorizontalAlign="Center">
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
                 </asp:CommandField>
             </Fields>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -109,22 +85,20 @@
             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
         </asp:DetailsView>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT * FROM [Lessons] WHERE ([Code_employee] = @Code_employee)" DeleteCommand="DELETE FROM [Lessons] WHERE [Code_lesson] = @Code_lesson" InsertCommand="INSERT INTO [Lessons] ([Name_lessons], [Description], [Code_employee]) VALUES (@Name_lessons, @Description, @Code_employee)" UpdateCommand="UPDATE [Lessons] SET [Name_lessons] = @Name_lessons, [Description] = @Description, [Code_employee] = @Code_employee WHERE [Code_lesson] = @Code_lesson">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT * FROM [Lessons] WHERE ([Code_lesson] = @Code_lesson)" DeleteCommand="DELETE FROM [Lessons] WHERE [Code_lesson] = @Code_lesson" InsertCommand="INSERT INTO [Lessons] ([Name_lessons], [Description]) VALUES (@Name_lessons, @Description)" UpdateCommand="UPDATE [Lessons] SET [Name_lessons] = @Name_lessons, [Description] = @Description WHERE [Code_lesson] = @Code_lesson">
         <DeleteParameters>
             <asp:Parameter Name="Code_lesson" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="Name_lessons" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="Code_employee" Type="Int32" />
         </InsertParameters>
         <SelectParameters>
-            <asp:ControlParameter ControlID="GridView1" Name="Code_employee" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="GridView1" Name="Code_lesson" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="Name_lessons" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="Code_employee" Type="Int32" />
             <asp:Parameter Name="Code_lesson" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>

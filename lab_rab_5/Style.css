@@ -57,6 +57,19 @@ p {
     font-size: 20px;
 }
 
+.labelName{
+    position: relative;
+    padding-top: 10px;
+    padding-left: 500px;
+    font-size: 36px;
+}
+
+.dropDownList{
+    position: relative;
+    padding-left: 400px;
+    padding-bottom:10px;
+}
+
 .search {
     position: relative;
     padding-top: 10px;
@@ -187,4 +200,4 @@ background : #717277;
 	border-right:1px solid #ddd;
 	border-radius:5px;	
 		
-	}
+	}
