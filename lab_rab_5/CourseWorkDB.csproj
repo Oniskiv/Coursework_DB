@@ -174,9 +174,15 @@
     <Content Include="Image\im_tb_del_m.png" />
     <Content Include="Image\save.png" />
     <Content Include="Image\select.png" />
-    <Content Include="InformationClasses.aspx" />
+    <Content Include="InformationClassesByCountLessons.aspx" />
+    <Content Include="InformationClassesByCountPupils.aspx" />
+    <Content Include="InformationClassesByType.aspx" />
+    <Content Include="InformationClassesByYear.aspx" />
     <Content Include="InformationEmployees.aspx" />
-    <Content Include="InformationPupils.aspx" />
+    <Content Include="InformationPupilsByAge.aspx" />
+    <Content Include="InformationPupilsByClasses.aspx" />
+    <Content Include="InformationPupilsByLessons.aspx" />
+    <Content Include="InformationPupilsByTypeClasses.aspx" />
     <Content Include="Style.css" />
     <Content Include="Employee.aspx" />
     <Content Include="fon.gif" />
@@ -188,23 +194,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Post.aspx" />
     <Content Include="Pupils.aspx" />
@@ -393,12 +382,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="InformationClasses.aspx.cs">
-      <DependentUpon>InformationClasses.aspx</DependentUpon>
+    <Compile Include="InformationClassesByCountLessons.aspx.cs">
+      <DependentUpon>InformationClassesByCountLessons.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InformationClasses.aspx.designer.cs">
-      <DependentUpon>InformationClasses.aspx</DependentUpon>
+    <Compile Include="InformationClassesByCountLessons.aspx.designer.cs">
+      <DependentUpon>InformationClassesByCountLessons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationClassesByCountPupils.aspx.cs">
+      <DependentUpon>InformationClassesByCountPupils.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationClassesByCountPupils.aspx.designer.cs">
+      <DependentUpon>InformationClassesByCountPupils.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationClassesByType.aspx.cs">
+      <DependentUpon>InformationClassesByType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationClassesByType.aspx.designer.cs">
+      <DependentUpon>InformationClassesByType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationClassesByYear.aspx.cs">
+      <DependentUpon>InformationClassesByYear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationClassesByYear.aspx.designer.cs">
+      <DependentUpon>InformationClassesByYear.aspx</DependentUpon>
     </Compile>
     <Compile Include="InformationEmployees.aspx.cs">
       <DependentUpon>InformationEmployees.aspx</DependentUpon>
@@ -407,12 +417,33 @@
     <Compile Include="InformationEmployees.aspx.designer.cs">
       <DependentUpon>InformationEmployees.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InformationPupils.aspx.cs">
-      <DependentUpon>InformationPupils.aspx</DependentUpon>
+    <Compile Include="InformationPupilsByAge.aspx.cs">
+      <DependentUpon>InformationPupilsByAge.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InformationPupils.aspx.designer.cs">
-      <DependentUpon>InformationPupils.aspx</DependentUpon>
+    <Compile Include="InformationPupilsByAge.aspx.designer.cs">
+      <DependentUpon>InformationPupilsByAge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationPupilsByClasses.aspx.cs">
+      <DependentUpon>InformationPupilsByClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationPupilsByClasses.aspx.designer.cs">
+      <DependentUpon>InformationPupilsByClasses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationPupilsByLessons.aspx.cs">
+      <DependentUpon>InformationPupilsByLessons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationPupilsByLessons.aspx.designer.cs">
+      <DependentUpon>InformationPupilsByLessons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationPupilsByTypeClasses.aspx.cs">
+      <DependentUpon>InformationPupilsByTypeClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationPupilsByTypeClasses.aspx.designer.cs">
+      <DependentUpon>InformationPupilsByTypeClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Lessons.aspx.cs">
       <DependentUpon>Lessons.aspx</DependentUpon>
@@ -428,49 +459,7 @@
     <Compile Include="Load_employee.aspx.designer.cs">
       <DependentUpon>Load_employee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Classes.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Lessons.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Load_employee.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Post.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pupils.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Timetable.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Track_record.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Post.aspx.cs">
       <DependentUpon>Post.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

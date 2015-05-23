@@ -73,11 +73,53 @@
                 <h2>Школа</h2>
             </div>
 
-
+            <%-- Ученики
+            Расписание: Расписание Занятия Классы 
+            Сотрудники: Сотрудники Должности Нагрузка_сотрудников Послужной_список--%>
 
             <div class="positionMenu">
                 <div id="header">
                     <ul id="menu">
+                        <li><a runat="server" href="~/">Главная</a></li>
+                        <li><a runat="server" href="~/Pupils.aspx">Ученики</a></li>
+                        <li><a runat="server" href="">Сотрудники</a>
+                            <ul>
+                                <li><a runat="server" href="~/Employee.aspx">Сотрудники школы</a></li>
+                                <li><a runat="server" href="~/Post.aspx">Должности</a></li>
+                                <li><a runat="server" href="~/Load_employee.aspx">Нагрузка сотрудников</a></li>
+                                <li><a runat="server" href="~/Track_record.aspx">Послужной список</a></li>
+                            </ul>
+                        </li>
+                        <li><a runat="server" href="">Расписание</a>
+                            <ul>
+                                <li><a runat="server" href="~/Timetable.aspx">Расписание занятий</a></li>
+                                <li><a runat="server" href="~/Lessons.aspx">Занятия</a></li>
+                                <li><a runat="server" href="~/Classes.aspx">Классы</a></li>
+                            </ul>
+                        </li>
+                        <li><a runat="server" href="">Другое</a>
+                            <ul>
+                                <li><a runat="server" href="~/InformationEmployees.aspx">Информация о сотрудниках</a></li>
+                                <li><a runat="server" href="">Информация об учениках</a>
+                                    <ul>
+                                        <li><a runat="server" href="~/InformationPupilsByClasses.aspx">По названию класса</a></li>
+                                        <li><a runat="server" href="~/InformationPupilsByTypeClasses.aspx">По виду класса</a></li>
+                                        <li><a runat="server" href="~/InformationPupilsByAge.aspx">По возрасту учеников</a></li>
+                                        <li><a runat="server" href="~/InformationPupilsByLessons.aspx">По занятиям в текущем году</a></li>
+                                    </ul>
+                                </li>
+                                <li><a runat="server" href="">Информация о классах</a>
+                                    <ul>
+                                        <li><a runat="server" href="~/InformationClassesByType.aspx">По виду класса</a></li>
+                                        <li><a runat="server" href="~/InformationClassesByYear.aspx">По году образования класса</a></li>
+                                        <li><a runat="server" href="~/InformationClassesByCountPupils.aspx">По количеству учеников</a></li>
+                                        <li><a runat="server" href="~/InformationClassesByCountLessons.aspx">По количеству уроков</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <%--<ul id="menu">
                         <li><a runat="server" href="~/">Главная</a></li>
                         <li><a runat="server" href="~/Classes.aspx">Классы</a></li>
                         <li><a runat="server" href="~/Pupils.aspx">Ученики</a></li>
@@ -94,7 +136,7 @@
                                 <li><a runat="server" href="~/InformationClasses.aspx">Классы</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </div>
             </div>
         </div>

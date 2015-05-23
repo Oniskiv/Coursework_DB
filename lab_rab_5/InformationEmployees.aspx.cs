@@ -10,7 +10,6 @@ namespace lab_rab_5
 {
     public partial class InformationEmployees : System.Web.UI.Page
     {
-        private SchoolWorkEntities1 db = new SchoolWorkEntities1();
         protected void Page_Load(object sender, EventArgs e)
         {
             //var query = from t in db.Employee select t;

@@ -2,11 +2,11 @@
     background: url('fon.gif');
 }
 
-.main{
-    /*/*position:relative;*/*/
-    /*/*padding-top:100px;*/*/
+.main {
+    /*/*position:relative;*/ */
+    /*/*padding-top:100px;*/ */;
 }
- 
+
 .positionMenu {
     margin: 0 auto;
     padding-top: 100px;
@@ -14,8 +14,8 @@
     /*padding-right:100px;*/
 }
 
-.positionMenuLogin{
-    position:absolute;
+.positionMenuLogin {
+    position: absolute;
 }
 
 .grid th {
@@ -57,17 +57,17 @@ p {
     font-size: 20px;
 }
 
-.labelName{
+.labelName {
     position: relative;
     padding-top: 10px;
     padding-left: 500px;
     font-size: 36px;
 }
 
-.dropDownList{
+.dropDownList {
     position: relative;
     padding-left: 400px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
 }
 
 .search {
@@ -84,120 +84,150 @@ p {
 }
 
 
-#feedbackP{
-
-background-color: white;
-width : 270px;
-height : 80px;
-position : fixed; /* фиксируем позицию в окне */
-z-index : 50;
-/* сдвигаем панель вправо вниз: */
-top : 80px; 
-left : 100%;
-/* выдвигаем краешек: */ 
-margin-top : -25px;
-margin-left : -25px;
-
-border : 2px solid;
-border-radius: 10px;
-padding: 5px 30px 15px 30px;
-
-/*задаем эффект движения: */
--moz-transition:margin 0.3s linear; 
--o-transition:margin 0.3s linear; 
--webkit-transition:margin 0.3s linear; 
--ms-transition:margin 0.3s linear; 
-transition:margin 0.3s linear; 
+#feedbackP {
+    background-color: white;
+    width: 270px;
+    height: 80px;
+    position: fixed; /* фиксируем позицию в окне */
+    z-index: 50;
+    /* сдвигаем панель вправо вниз: */
+    top: 80px;
+    left: 100%;
+    /* выдвигаем краешек: */
+    margin-top: -25px;
+    margin-left: -25px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 5px 30px 15px 30px;
+    /*задаем эффект движения: */
+    -moz-transition: margin 0.3s linear;
+    -o-transition: margin 0.3s linear;
+    -webkit-transition: margin 0.3s linear;
+    -ms-transition: margin 0.3s linear;
+    transition: margin 0.3s linear;
 }
-#feedbackP:hover{ 
-/* выдвигаем панель на всеобщее обозрение: */ 
 
-background-color: white;
-margin-left : -270px;
-/*задаем эффект движения: */ 
--moz-transition:margin 0.3s linear; 
--o-transition:margin 0.3s linear; 
--webkit-transition:margin 0.3s linear; 
--ms-transition:margin 0.3s linear; 
-transition:margin 0.3s linear; 
-}
+    #feedbackP:hover {
+        /* выдвигаем панель на всеобщее обозрение: */
+        background-color: white;
+        margin-left: -270px;
+        /*задаем эффект движения: */
+        -moz-transition: margin 0.3s linear;
+        -o-transition: margin 0.3s linear;
+        -webkit-transition: margin 0.3s linear;
+        -ms-transition: margin 0.3s linear;
+        transition: margin 0.3s linear;
+    }
 
 /*Делаем заголовок панели, как уголок папки с бумагами: */
-#feedbackButton{
-font-weight : bold;
-margin-left : 10px;
-margin-top : -6px;
-border : 1px solid #717277;
-border-radius : 0px 0px 10px 10px;
-text-align : center;
-width : 140px;
-margin-bottom : 5px;
-color : #FFFFFF;
-background : #717277;
+#feedbackButton {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: -6px;
+    border: 1px solid #717277;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    width: 140px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    background: #717277;
 }
 
 
 
-    #menu {
-        z-index:500;
-    }
-    #menu ul, li {
-		margin:0;
-		padding:0;
-		list-style-type:none;	
-	}
-	
-	#menu {
-		font-family:Verdana, Geneva, sans-serif;
-		font-size:14px;
-		display:block;
-		position:relative;
-			
-	}
-	#menu > li {
-		display:inline-block;
-		position:relative;
+#menu {
+    z-index: 500;
+    left: 150px;
+}
 
-	}
-	
-	#menu > li > a {
-		display:inline-block;
-		height:40px;
-		padding:10px;
-		background-color:#f5f5f5;
-		border-top:1px solid #FFF;
-		border-left:1px solid #FFF;
-		border-bottom:1px solid #ddd;
-		border-right:1px solid #ddd;
-		border-radius:5px;						
-	}
-	#menu > li:hover > a {
-		color:#009999;	
-	}
-	#menu > li > ul {
-		position:absolute;
-		top:42px;
-		left:0px;
-		display:none;	
-	}
-	#menu > li:hover > ul {
-		display:block;	
-		box-shadow:1px 1px 5px #ddd;
-	}
-	
-	#menu > li:hover > ul > li {
-		display:inline-block;
-	}
-	#menu > li:hover > ul > li > a {
-		display:inline-block;
-		width:120px;
-		padding:10px;
-		background-color:#f2f2f2;
-	
-	border-top:1px solid #FFF;
-	border-left:1px solid #FFF;
-	border-bottom:1px solid #ddd;
-	border-right:1px solid #ddd;
-	border-radius:5px;	
-		
-	}
+    #menu ul, li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+#menu {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    display: block;
+    position: relative;
+}
+
+    #menu > li {
+        display: inline-block;
+        position: relative;
+    }
+
+        #menu > li > a {
+            display: inline-block;
+            height: 40px;
+            padding: 10px;
+            margin-left: 50px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #FFF;
+            border-left: 1px solid #FFF;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #menu > li:hover > a {
+            color: #009999;
+        }
+        /*fgd*/
+        #menu > li > ul {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            display: none;
+        }
+
+        #menu > li:hover > ul {
+            display: block;
+            box-shadow: 1px 1px 5px #ddd;
+        }
+
+            #menu > li:hover > ul > li {
+                display: inline-block;
+            }
+
+                #menu > li:hover > ul > li > a {
+                    display: inline-block;
+                    width: 120px;
+                    padding: 10px;
+                    background-color: #f2f2f2;
+                    border-top: 1px solid #FFF;
+                    border-left: 1px solid #FFF;
+                    border-bottom: 1px solid #ddd;
+                    border-right: 1px solid #ddd;
+                    border-radius: 5px;
+                    width: 150px;
+                }
+                /*vxvx*/
+                #menu > li:hover > ul > li > ul {
+                    position: absolute;
+                    top: 60px;
+                    left: 150px;
+                    display: none;
+                }
+
+                #menu > li:hover > ul > li:hover > ul {
+                    display: block;
+                    box-shadow: 1px 1px 5px #ddd;
+                }
+
+                    #menu > li:hover > ul > li:hover > ul > li {
+                        display: inline-block;
+                    }
+
+                    #menu > li:hover > ul > li:hover > ul > li > a {
+                        display: inline-block;
+                        width: 120px;
+                        padding: 10px;
+                        background-color: #f2f2f2;
+                        border-top: 1px solid #FFF;
+                        border-left: 1px solid #FFF;
+                        border-bottom: 1px solid #ddd;
+                        border-right: 1px solid #ddd;
+                        border-radius: 5px;
+                    }
