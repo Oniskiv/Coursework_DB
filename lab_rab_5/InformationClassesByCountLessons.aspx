@@ -21,23 +21,17 @@
         </div>
         <asp:GridView ID="GridView1" CssClass="grid" runat="server" PagerSettings-Mode="NumericFirstLast" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
             <Columns>
-                <asp:BoundField DataField="Name_class" HeaderText="Название класса" SortExpression="Name_class" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Name_class" HeaderText="Name_class" SortExpression="Name_class" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Class_type" HeaderText="Тип класса" SortExpression="Class_type" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Class_type" HeaderText="Class_type" SortExpression="Class_type" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Number_pupils" HeaderText="Количество учеников" SortExpression="Number_pupils" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Number_pupils" HeaderText="Number_pupils" SortExpression="Number_pupils" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Year_creation" HeaderText="Дата создания" SortExpression="Year_creation" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" DataFormatString="{0:d}">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Year_creation" HeaderText="Year_creation" SortExpression="Year_creation" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Name_lessons" HeaderText="Название занятия" SortExpression="Name_lessons" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Day_week" HeaderText="Day_week" SortExpression="Day_week" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Day_week" HeaderText="День недели" SortExpression="Day_week" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
-                    <ItemStyle HorizontalAlign="Center" Width="18.3%"></ItemStyle>
+                <asp:BoundField DataField="Количество занятий" HeaderText="Количество занятий" SortExpression="Количество занятий" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" ReadOnly="True">
                 </asp:BoundField>
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -53,9 +47,10 @@
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="ListClassesByType" SelectCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="ListClassesByCountLessons" SelectCommandType="StoredProcedure">
         <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="codeType" PropertyName="SelectedValue" Type="String" />
+            <asp:ControlParameter ControlID="TextBox1" Name="countLessons" PropertyName="Text" Type="Int32" DefaultValue="1" />
+            <asp:ControlParameter ControlID="DropDownList1" DefaultValue="" Name="dayWeek" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolWorkConnectionString1 %>" SelectCommand="SELECT [Class_type] FROM [Classes]"></asp:SqlDataSource>
