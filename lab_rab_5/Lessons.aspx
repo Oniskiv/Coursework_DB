@@ -10,7 +10,7 @@
         <asp:Button ID="Button1" runat="server" Text="Поиск" OnClick="Button1_Click" />
     </div>
     <div style="padding-top: 10px">
-        <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_lesson" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
+        <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_lesson" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
             <Columns>
                 <asp:BoundField DataField="Name_lessons" HeaderText="Название занятия" SortExpression="Name_lessons" ItemStyle-Width="50%" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField DataField="Description" HeaderText="Описание" SortExpression="Description" ItemStyle-Width="50%" ItemStyle-HorizontalAlign="Center" />

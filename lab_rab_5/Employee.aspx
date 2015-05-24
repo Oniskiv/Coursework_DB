@@ -10,7 +10,7 @@
         <asp:Button ID="Button1" runat="server" Text="Поиск" OnClick="Button1_Click" />
     </div>
     <div style="padding-top: 10px">
-        <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_employee" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
+        <asp:GridView ID="GridView1" CssClass="grid" PagerSettings-Mode="NumericFirstLast" runat="server" AllowPaging="True" AutoGenerateColumns="False" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Code_employee" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnPageIndexChanging="GridView1_PageIndexChanging">
             <Columns>
                 <asp:BoundField DataField="Name_employee" HeaderText="ФИО сотрудника" SortExpression="Name_employee" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
@@ -114,7 +114,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Дата рождения" SortExpression="Birth_date">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Birth_date") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>'></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TextBox2" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox2" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
                     </EditItemTemplate>

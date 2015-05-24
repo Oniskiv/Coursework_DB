@@ -14,10 +14,10 @@
         <asp:GridView ID="GridView1" CssClass="grid" runat="server" AutoGenerateColumns="False" PagerSettings-Mode="NumericFirstLast" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="Name_pupil" HeaderText="Name_pupil" SortExpression="Name_pupil" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" />
-                <asp:BoundField DataField="Birth_date" HeaderText="Birth_date" SortExpression="Birth_date" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" />
+                <asp:BoundField DataField="Birth_date" HeaderText="Birth_date" SortExpression="Birth_date" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" DataFormatString="{0:d}" />
                 <asp:BoundField DataField="Name_class" HeaderText="Name_class" SortExpression="Name_class" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%"/>
                 <asp:BoundField DataField="Class_type" HeaderText="Class_type" SortExpression="Class_type" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" />
-                <asp:BoundField DataField="Date_lesson" HeaderText="Date_lesson" SortExpression="Date_lesson" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" />
+                <asp:BoundField DataField="Date_lesson" HeaderText="Date_lesson" SortExpression="Date_lesson" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" DataFormatString="{0:d}" />
                 <asp:BoundField DataField="Name_lessons" HeaderText="Name_lessons" SortExpression="Name_lessons" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

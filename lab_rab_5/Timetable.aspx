@@ -16,10 +16,10 @@
                 <asp:BoundField DataField="Date_lesson" HeaderText="Дата занятия" SortExpression="Date_lesson" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                <asp:BoundField DataField="Start_time" HeaderText="Время начала занятия" SortExpression="Start_time" DataFormatString="{0:hh\:mm}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:BoundField>
-                <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:t}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                <asp:BoundField DataField="End_time" HeaderText="Время окончания занятия" SortExpression="End_time" DataFormatString="{0:hh\:mm}" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                 </asp:BoundField>
                 <asp:TemplateField HeaderText="Название класса" SortExpression="Code_class" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
@@ -129,7 +129,7 @@
                 <asp:BoundField DataField="Code_timetable" HeaderText="Код расписания" InsertVisible="False" ReadOnly="True" SortExpression="Code_timetable" />
                 <asp:TemplateField HeaderText="Дата проведения" SortExpression="Date_lesson">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_lesson") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date_lesson", "{0:d}") %>'></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox1" ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" runat="server" ErrorMessage="Введена неверная дата"></asp:RegularExpressionValidator>
@@ -161,32 +161,32 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Время начала занятия" SortExpression="Start_time">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time", "{0:hh\:mm}") %>'></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <InsertItemTemplate>
-                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time", "{0:t}") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Start_time", "{0:hh\:mm}") %>'></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="TextBox3" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Start_time", "{0:t}") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Start_time", "{0:hh\:mm}") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Время окончания занятия" SortExpression="End_time">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time","{0:hh\:mm}") %>'></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <InsertItemTemplate>
-                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time", "{0:t}") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("End_time", "{0:hh\:mm}") %>'></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="TextBox4" runat="server" ErrorMessage="Поле не заполнено"></asp:RequiredFieldValidator>
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("End_time", "{0:t}") %>'></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("End_time", "{0:hh\:mm}") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Название класса" SortExpression="Code_class">

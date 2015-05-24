@@ -18,5 +18,10 @@ namespace lab_rab_5
         {
             SqlDataSource1.FilterExpression = "Name_post LIKE '" + TextBox3.Text + "%'";
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            SqlDataSource1.FilterExpression = "Name_post LIKE '" + TextBox3.Text + "%'";
+        }
     }
 }
