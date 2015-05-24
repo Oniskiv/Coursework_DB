@@ -6,7 +6,7 @@
     <div style="padding-top: 10px">
         <div class="dropDownList">
             <asp:Label ID="Label1" runat="server" Text="Количество занятий:" Font-Size="18"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="true"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="Label7" runat="server" Text="День недели:" Font-Size="18"></asp:Label>
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" AppendDataBoundItems="true">
@@ -27,7 +27,7 @@
                 </asp:BoundField>
                 <asp:BoundField DataField="Number_pupils" HeaderText="Number_pupils" SortExpression="Number_pupils" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
-                <asp:BoundField DataField="Year_creation" HeaderText="Year_creation" SortExpression="Year_creation" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
+                <asp:BoundField DataField="Year_creation" HeaderText="Year_creation" SortExpression="Year_creation" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%" DataFormatString="{0:d}">
                 </asp:BoundField>
                 <asp:BoundField DataField="Day_week" HeaderText="Day_week" SortExpression="Day_week" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18.3%">
                 </asp:BoundField>
